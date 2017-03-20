@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get a text whenever a game in NCAA March Madness gets close in the fourth quarter." />
+    <meta name="keywords" content="ncaa, march madness, basketball, bracket, college basketball, sms" />
+
+    <meta property="og:title" content="SMS alerts for March Madness nail-biters" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://youshouldreallywatchthisrightnow.com/" />
+    <meta property="og:image" content="https://youshouldreallywatchthisrightnow.com/fb.jpg" />
+    <meta property="og:description" content="Get a text whenever a game in NCAA March Madness gets close in the fourth quarter." />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="SMS alerts for March Madness nail-biters" />
+    <meta name="twitter:description" content="Get a text whenever a game in NCAA March Madness gets close in the fourth quarter." />
+
+    <title>You should really watch this right now.</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.blue-red.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" type="text/css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.min.js"></script>
+    <style media="screen">
+      .tagline {
+        color: white;
+        position: relative;
+        padding: 8em 0;
+        overflow: hidden;
+        margin-bottom: 2em;
+      }
+
+      .tagline:before {
+        display: block;
+        z-index: -1;
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image: url('/bg.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 40% 25%;
+        filter: brightness(0.2);
+      }
+
+      .tagline p {
+        padding: 8px 0;
+      }
+
+      .sign-up, .sms-wrapper {
+        margin-top: 4em;
+      }
+
+      .sign-up .mdl-card {
+        margin: 3em auto 0;
+      }
+
+      .demo p {
+        margin-bottom: 3em;
+      }
+
+      .sms-wrapper {
+        padding-right: 12px;
+        height: 500px;
+        background-image: url('phone.png');
+        position: relative;
+        background-repeat: no-repeat;
+        background-size: auto;
+        background-position: center center;
+      }
+
+      .sms {
+        font-size: 11px;
+        line-height: 13px;
+        background: #0BD318;
+        color: white;
+        width: 135px;
+        border-radius: 1.5em;
+        position: relative;
+        padding: .5em 1.5em;
+        left: 50%;
+        margin-left: -80px;
+        margin-top: 90px;
+      }
+
+      .sms:before {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        bottom: -2px;
+        left: -8px;
+        height: 19px;
+        border-left: 20px solid #0BD318;
+        border-bottom-right-radius: 16px 14px;
+        -webkit-transform: translate(0, -2px);
+        transform: translate(0, -2px);
+      }
+
+      .sms:after {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        bottom: -2px;
+        left: -42px;
+        width: 12px;
+        height: 20px;
+        background: white;
+        border-bottom-right-radius: 10px;
+        -webkit-transform: translate(30px, -2px);
+        transform: translate(30px, -2px);
+      }
+
+      .points-label {
+        position: absolute;
+        right: 6px;
+        top: 24px;
+      }
+
+      #spinner {
+        margin-right: -40px;
+        top: 9px;
+        margin-left: 12px;
+      }
+
+      footer {
+        margin-top: 120px;
+      }
+
+                                  .content { max-width: 90%;    }
+      @media(min-width: 1200px) { .content { max-width: 1200px; } }
+    </style>
+  </head>
+  <body>
+    <div class="mdl-layout__container">
+      <div class="mdl-layout mdl-js-layout">
+        <div class="mdl-layout__content" style="flex: 1 0 auto;">
+          <div class="tagline">
+            <div class="mdl-grid content">
+              <div class="mdl-cell mdl-cell--12-col">
+                <div class="mdl-typography--display-2 mdl-typography--font-thin">You should really watch this right now.</div>
+                <p class="mdl-typography--headline mdl-typography--font-thin">March Madness. <br class="mdl-cell--hide-desktop"> 4th quarter. Close game. <br class="mdl-cell--hide-desktop"> Get a text about it.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="demo">
+            <div class="mdl-grid content">
+              <div class="mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--middle mdl-cell--order-2-desktop sms-wrapper">
+                <div class="sms">
+                  UNC v. NOVA is close, with only a 3 point difference in the 4th quarter!<br><br>Text STOP to opt out.
+                </div>
+              </div>
+              <div class="mdl-cell--6-col mdl-cell--8-col-tablet sign-up mdl-typography--text-center mdl-cell--middle mdl-cell--order-1-desktop">
+                <p>You'll get a text when <strong>any</strong> game gets close in the fourth quarter. <br>Standard SMS messaging rates apply.</p>
+                <form action="https://us-central1-ncaa-sms.cloudfunctions.net/subscribe" method="post" class="mdl-card mdl-shadow--6dp" id="signup">
+                  <div class="mdl-card__title mdl-color--primary mdl-color-text--white">
+                    <h2 class="mdl-card__title-text">Sign me up</h2>
+                  </div>
+                  <div class="mdl-card__supporting-text">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                      <input class="mdl-textfield__input" type="text" id="phone" name="phone">
+                      <label class="mdl-textfield__label" for="phone">Phone number</label>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                      <input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="score" value="6" min="1" max="10" name="score">
+                      <label class="mdl-textfield__label" for="score">Notify me if the score is within</label>
+                      <div class="points-label">points</div>
+                      <span class="mdl-textfield__error">Must be between 1 and 10.</span>
+                    </div>
+                  </div>
+                  <div class="mdl-card__actions mdl-card--border">
+            				<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="submit">
+                      Sign up for <strong>$0.99</strong>
+                    </button>
+                    <div id="spinner" class="mdl-spinner mdl-spinner--single-color mdl-js-spinner"></div>
+            			</div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="ads content mdl-grid" style="height:200px">
+            <div class="mdl-cell--12-col">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+              <ins class="adsbygoogle"
+                   style="display:block"
+                   data-ad-client="ca-pub-9145742591528460"
+                   data-ad-slot="7980560832"
+                   data-ad-format="auto"></ins>
+              <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+              </script>
+            </div>
+          </div>
+
+          <footer class="mdl-mini-footer">
+            <div class="mdl-mini-footer__left-section">
+              <div class="mdl-logo">You Should Really Watch This Right Now <small>(.com)</small></div>
+              <ul class="mdl-mini-footer__link-list">
+                <li><a href="https://cjcodes.com">made in brooklyn by cjcodes</a></li>
+                <li><a href="mailto:chris@cjcodes.com">get in touch</a></li>
+                <li><a href="https://twitter.com/cjcodes">@cjcodes</a></li>
+              </ul>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+    <script src="/xhr-polyfill.js"></script>
+    <script>
+      var form = document.getElementById('signup');
+
+      var handler = StripeCheckout.configure({
+        key: 'pk_live_xnCc2wdm4aE9KxzhqK3b7K2F',
+        // image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+        locale: 'auto',
+        token: function (token) {
+          var phone = document.getElementById('phone').value;
+          var score = document.getElementById('score').value;
+          document.getElementById('submit').disabled = true;
+          document.getElementById('spinner').className = document.getElementById('spinner').className + ' is-active';
+
+          var request = new XMLHttpRequest();
+          request.open('POST', form.action, true);
+          request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+          request.send('phone='+phone+'&score='+score+'&stripe='+token.id+'&email='+encodeURIComponent(token.email));
+
+          request.onreadystatechange = function () {
+            if (request.readyState == 4) {
+              var node = document.createElement('h1');
+              node.innerHTML = request.responseText;
+              form.parentNode.replaceChild(node, form);
+            }
+          };
+        }
+      });
+
+      // Close Checkout on page navigation:
+      window.addEventListener('popstate', function() {
+        handler.close();
+      });
+
+      form.onsubmit = function (e) {
+        e.preventDefault();
+
+        handler.open({
+          name: 'March Madness SMS Alerts',
+          description: 'SMS alerts for 2017',
+          zipCode: true,
+          amount: 99
+        });
+      }
+    </script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-93946868-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>

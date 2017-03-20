@@ -1,0 +1,4 @@
+node_modules
+functions/config.js
+public/.well-known
+.DS_Store

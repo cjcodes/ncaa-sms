@@ -1,0 +1,11 @@
+module.exports = {
+  twilio:{
+    sid: 'TWILIO_SID',
+    token: 'TWILIO_TOKEN',
+    number: 'NUMBER_TO_SEND_FROM',
+    copilotId: 'COPILOT_SERVICE_ID',
+  },
+  stripe: {
+    key: 'STRIPE_PRIVATE_KEY',
+  },
+};
